@@ -1,0 +1,30 @@
+# i3status config
+
+order += "cpu_temperature 0"
+order += "memory"
+order += "disk /"
+order += "ethernet _first_"
+order += "tztime local"
+
+# --------
+cpu_temperature 0 {
+	format = " CPU T -> %degrees °C "
+	path = "/sys/class/hwmon/hwmon0/temp1_input"
+}
+
+memory {
+	format = " MEM: %used -> %available "
+}
+
+disk "/" {
+        format = " DISK -> %avail "
+}
+
+ethernet _first_ {
+        format_up = " 📶 %ip "
+        format_down = " 📶 down "
+}
+
+tztime local {
+        format = " %d/%m/%Y -> %H:%M:%S "
+}
